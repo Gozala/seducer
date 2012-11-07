@@ -2,14 +2,12 @@
 
 var server = require('../server')
 
+// Try by running:
+// curl -d http://localhost:8080/
+
 var app = server(function hanler(request) {
-  return [
-    {
-      statusCode: 200,
-      head: { 'ContentType': 'text/plain' }
-    },
-    "hello world"
-  ]
+  var head = { statusCode: 200, headers: { 'ContentType': 'text/plain' } }
+  return [ head, "hello world" ]
 })
 module.exports = app
 
