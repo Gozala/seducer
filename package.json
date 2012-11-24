@@ -1,7 +1,7 @@
 {
   "name": "seducer",
   "id": "seducer",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "FRP style reducible http server",
   "keywords": [
     "seducer"
