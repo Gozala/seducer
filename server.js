@@ -1,15 +1,18 @@
 "use strict";
 
 // Import reducers implementation for node streams.
-require("stream-reduce")
+var Stream = require("stream-reduce")
 
-var curry = require("functional").curry
+var curry = require("functional/curry")
+
 var http = require("http")
+
 var concat = require("reducers/concat")
 var hub = require("reducers/hub")
-var accumulate = require("reducers/accumulate")
-var end = require("reducers/end")
-var isError = require("reducers/is-error")
+
+var reduce = require("reducible/reduce")
+var end = require("reducible/end")
+var isError = require("reducible/is-error")
 
 
 function input(raw) {
@@ -42,7 +45,7 @@ module.exports = curry(function server(handler, port) {
     // TODO: Implement back pressure. We will need to implement back pressure
     // in a similar way to "fs-reduce".
 
-    accumulate(output, function(value, isHead) {
+    reduce(output, function(value, isHead) {
       if (value === end) {
         response.end()
       } else if (isHead) {

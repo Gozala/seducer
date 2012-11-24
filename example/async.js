@@ -5,7 +5,7 @@ var concat = require("reducers/concat")
 var server = require('../server')
 
 // Try by running:
-// curl -d http://localhost:8080/
+// curl http://localhost:8080/
 
 var app = server(function hanler(request) {
   var head = { statusCode: 200, headers: { 'ContentType': 'text/plain' } }
